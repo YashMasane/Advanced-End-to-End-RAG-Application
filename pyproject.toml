@@ -12,5 +12,6 @@ dependencies = [
     "langchain-openai>=1.0.3",
     "openai>=2.8.0",
     "python-dotenv>=1.2.1",
+    "structlog>=25.5.0",
     "tiktoken>=0.12.0",
 ]

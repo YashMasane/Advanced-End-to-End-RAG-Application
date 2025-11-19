@@ -1,5 +1,5 @@
 import logging
-import datetime
+import datetime 
 import os
 import structlog
 
@@ -7,7 +7,7 @@ class CustomLogger:
     def __init__(self, log_dir='log'):
         self.log_dir = os.path.join(os.getcwd(), log_dir)
         os.makedirs(self.log_dir, exist_ok=True)
-        log_file = f'{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log'
+        log_file = f'{datetime.datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log'
         self.log_file_path = os.path.join(self.log_dir, log_file)
 
     def get_logger(self, name=__file__):
@@ -15,11 +15,11 @@ class CustomLogger:
 
         file_handler = logging.FileHandler(self.log_file_path)
         file_handler.setLevel(logging.INFO)
-        file_handler.setFormater(logging.Formatter('%(message)s'))
+        file_handler.setFormatter(logging.Formatter('%(message)s'))
 
         console_handler = logging.StreamHandler()
         console_handler.setLevel(logging.INFO)
-        console_handler.setFormater(logging.Formatter('%(message)s'))
+        console_handler.setFormatter(logging.Formatter('%(message)s'))
 
         logging.basicConfig(
             level=logging.INFO,

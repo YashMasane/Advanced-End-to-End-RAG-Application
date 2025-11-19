@@ -19,7 +19,7 @@ def load_config(config_path: str | None=None) -> dict:
     if not path.is_absolute():
         config_path = _project_root() / path
     
-    if not path.exist():
+    if not path.exists():
         raise FileNotFoundError(f"Config file not found: {path}")
 
     with open(path, 'r', encoding='utf-8') as f:
